@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Typescript 변수 선언 | Programming Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="TypeScript" />
+    
+    <meta name="description" content="let과 const는 자바스크립트에서 비교적 새로운 변수 선언 방법 입니다. let과 var는 비슷하지만 자바스크립트에서 흔한 “gotchas”https://en.wikipedia.org/wiki/Gotcha_(programming) 를 피할 수 있게 해 줍니다. const는 let에 변수에 재할당을 막도록 확장된 것입니다.
+TypeScript는 자바스크립">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typescript 변수 선언">
+<meta property="og:url" content="http://dragonjun.github.io/TypeScript/2016-12-02-typescript-variable-declaration.html">
+<meta property="og:site_name" content="Programming Training">
+<meta property="og:description" content="let과 const는 자바스크립트에서 비교적 새로운 변수 선언 방법 입니다. let과 var는 비슷하지만 자바스크립트에서 흔한 “gotchas”https://en.wikipedia.org/wiki/Gotcha_(programming) 를 피할 수 있게 해 줍니다. const는 let에 변수에 재할당을 막도록 확장된 것입니다.
+TypeScript는 자바스크립">
+<meta property="og:image" content="http://dragonjun.github.io/images/TypeScript.png">
+<meta property="og:updated_time" content="2016-12-02T12:39:34.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Typescript 변수 선언">
+<meta name="twitter:description" content="let과 const는 자바스크립트에서 비교적 새로운 변수 선언 방법 입니다. let과 var는 비슷하지만 자바스크립트에서 흔한 “gotchas”https://en.wikipedia.org/wiki/Gotcha_(programming) 를 피할 수 있게 해 줍니다. const는 let에 변수에 재할당을 막도록 확장된 것입니다.
+TypeScript는 자바스크립">
+<meta name="twitter:image" content="http://dragonjun.github.io/images/TypeScript.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-28750529-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming Training</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-/TypeScript/2016-12-02-typescript-variable-declaration.html" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Typescript 변수 선언
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                <a href="/TypeScript/2016-12-02-typescript-variable-declaration.html" class="article-date">
+    <time datetime="2016-12-01T20:00:00.000Z" itemprop="datePublished">2016-12-02</time>
+</a>
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>let</code>과 <code>const</code>는 자바스크립트에서 비교적 새로운 변수 선언 방법 입니다. <code>let</code>과 <code>var</code>는 비슷하지만 자바스크립트에서 흔한 “gotchas”<a href="https://en.wikipedia.org/wiki/Gotcha_(programming)" target="_blank" rel="external">https://en.wikipedia.org/wiki/Gotcha_(programming)</a> 를 피할 수 있게 해 줍니다. <code>const</code>는 <code>let</code>에 변수에 재할당을 막도록 확장된 것입니다.</p>
+<p>TypeScript는 자바스크립트의 superset으로 <code>let</code>과 <code>const</code>를 지원합니다. 이 두가지 새로운 선언에 대해서 자세히 알아 보고 왜 <code>var</code>보다 더 바람직한지 설명할 것입니다.</p>
+<h2 id="var-선언"><a href="#var-선언" class="headerlink" title="var 선언"></a><code>var</code> 선언</h2><p>자바스크립트에서 변수를 선언은 <code>var</code> 키워드로 해왔습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div></pre></td></tr></table></figure>
+<p>함수 안에서도 변수를 선언할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> message = <span class="string">"Hello, world!"</span>;</div><div class="line">  <span class="keyword">return</span> message;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>그리고 다른 함수에서 이 변수들에 접근할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> b = a + <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> b;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> g = f();</div><div class="line"><span class="built_in">console</span>.log(g());  <span class="comment">// 11을 출력</span></div></pre></td></tr></table></figure>
+<p>위 예에서 <code>g</code>는 <code>f</code>에서 선언된 변수 <code>a</code>를 캡처(capture)합니다. <code>g</code>가 호출될때 <code>a</code>의 값은 <code>f</code>안의 <code>a</code>의 값에 묶입니다. <code>f</code>가 실행을 완료했어도 <code>g</code>가 호출되면 <code>a</code>에 접근하고 수정할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line">  a = <span class="number">2</span>;</div><div class="line">  <span class="keyword">var</span> b = g();</div><div class="line">  a = <span class="number">3</span>;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> b;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(f()); <span class="comment">// 2를 출력</span></div></pre></td></tr></table></figure>
+<h3 id="Scoping-rules"><a href="#Scoping-rules" class="headerlink" title="Scoping rules"></a>Scoping rules</h3><p><code>var</code> 선언은 이상한 scoping rules를 가집니다. 다음 예제를 보면:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">shouldInitialize: <span class="built_in">boolean</span></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (shouldInitialize) &#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> x;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(f(<span class="literal">true</span>));  <span class="comment">// 10</span></div><div class="line"><span class="built_in">console</span>.log(f(<span class="literal">false</span>)); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<p>변수 <code>x</code>는 <code>if</code> 블럭(block)안에서 선언되었지만 블럭 밖에서도 접근할 수 있습니다. <code>var</code> 선언을 포함하는 블럭과는 관계 없이 그것을 감싸고 있는 함수, 모듈(module), 네임스페이스(namesapce) 또는 global scope의 어디에서나 접근이 가능합니다. 어떤 사람들은 이것을 <em><code>var</code>-scoping</em> 또는 <em>function-scoping</em>라고 부릅니다. 파라미터(parameter)도 또한 function-scoping을 따릅니다.</p>
+<p>이러한 scoping rule은 몇몇 형태의 실수를 유발할 수 있습니다. 그중 하나는 변수를 여러번 선언해도 에러가 아니라는 사실이다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumMatrix</span>(<span class="params">matrix: <span class="built_in">number</span>[][]</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> currentRow = matrix[i];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; currentRow.length; i++) &#123;</div><div class="line">      sum += currentRow[i];</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>어쩌면 몇몇은 찾아내기 쉬울 수도 있습니다. <code>i</code>는 동일한 function-scope 변수이기 때문에 안쪽의 <code>for</code>-루프는 뜻하지 않게 변수 <code>i</code>를 덮어 씁니다.<br>이런 버그는 코드리뷰에서도 잡기 어렵습니다.</p>
+<h3 id="변수-캡처의-이상한-점-variable-capturing-quirks"><a href="#변수-캡처의-이상한-점-variable-capturing-quirks" class="headerlink" title="변수 캡처의 이상한 점(variable capturing quirks)"></a>변수 캡처의 이상한 점(variable capturing quirks)</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(i); &#125;, <span class="number">100</span> * i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>setTimeout</code>은 일정 시간 후에 함수를 실행합니다.</p>
+<p>실행 결과는 이렇습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div></pre></td></tr></table></figure>
+<p>많은 자바스크립트 개발자는 이 동작을 잘 알고 있지만, 대부분의 사람들은 출력이 다음과 같을 거라고 기대합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="number">5</span></div><div class="line"><span class="number">6</span></div><div class="line"><span class="number">7</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="number">9</span></div></pre></td></tr></table></figure>
+<p><code>setTimeout</code>에 전달하는 모든 함수 표현식은 실제로 동일한 범위의 동일한 <code>i</code>를 참조합니다.</p>
+<p><code>setTimeout</code>은 일정 시간 후에 함수를 실행하지만 <code>for</code> 루프가 실행을 중지 한 후에만 실행됩니다. <code>for</code> 루프가 실행을 멈출 때 <code>i</code>의 값은 10입니다. 따라서 주어진 함수가 호출될 때마다 <code>10</code>을 출력합니다.</p>
+<p>일반적인 해결 방법은 즉시 호출 함수 표현인 IIFE(Immediately Invoked Function Expression)을 사용해서 각 반복에서 i를 캡처하는 것입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  <span class="comment">// capture the current state of 'i'</span></div><div class="line">  <span class="comment">// by invoking a function with its current value</span></div><div class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(i); &#125;, <span class="number">100</span> * <span class="number">1</span>);</div><div class="line">  &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이 특이한 패턴은 실제로 매우 일반적으로 사용됩니다.</p>
+<h2 id="let-선언"><a href="#let-선언" class="headerlink" title="let 선언"></a><code>let</code> 선언</h2><p>지금까지 <code>var</code> 키워드는 몇가지 문제가 있다는 것을 알게 되었고 그것이 <code>let</code>가 도입된 이유입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> hello = <span class="string">"Hello!"</span>;</div></pre></td></tr></table></figure>
+<h3 id="Block-scoping"><a href="#Block-scoping" class="headerlink" title="Block-scoping"></a>Block-scoping</h3><p><code>let</code>을 사용해서 변수를 선언하면 <em>lexical-scoping</em> 또는 <em>block-scoping</em>을 사용합니다. 감싸고 있는 함수 전체로 scope를 넓히는 <code>var</code>로 선언된 변수와를 다르게 block-scope 변수는 가장 가까운 포함 블럭 또는 <code>for</code>루프 외부에서는 볼 수 없습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">input: <span class="built_in">boolean</span></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">100</span>;</div><div class="line">  <span class="keyword">if</span> (input) &#123;</div><div class="line">    <span class="keyword">let</span> b = a + <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> b;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>a</code>와 <code>b</code>는 로컬 변수입니다. <code>a</code>의 scope는 <code>f</code>의 바디로 제한되는데 비해 <code>b</code>의 scope는 <code>if</code> 문의 블럭으로 제한됩니다.</p>
+<p><code>catch</code>절 안에서 선언된 변수도 비슷한 scoping 룰이 적용됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  <span class="keyword">throw</span> <span class="string">"oh no!"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span> (e) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"Oh well."</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(e);</div></pre></td></tr></table></figure>
+<p>블럭 범위 변수의 또 다른 특성은 실제로 선언되기 전에 읽거나 쓸 수 없다는 것입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a++;</div><div class="line"><span class="keyword">let</span> a;</div></pre></td></tr></table></figure>
+<p>주의해야 할 점은 블럭 범위가 선언되기 전에 변수를 캡처할 수 있다는 것입니다. 단, 선언되기 전에 함수를 호출하는 것은 안됩니다. TypeScript에서는 에러가 발생하지는 않지만 ES2015에서는 실행할때 ReferenceError 예외가 발생합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a;</div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="keyword">let</span> a;</div></pre></td></tr></table></figure>
+<h3 id="Re-declarations-and-Shadowing"><a href="#Re-declarations-and-Shadowing" class="headerlink" title="Re-declarations and Shadowing"></a>Re-declarations and Shadowing</h3><p><code>var</code> 선언은 동일한 이름으로 여러번 선언해도 에러가 발생하지 않습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> x;</div><div class="line">  <span class="keyword">var</span> x;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">var</span> x;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>위 예에서 모든 <code>x</code> 선언은 실제로 동일한 <code>x</code>를 참조합니다. 이것은 종종 버그의 원인이 됩니다.<br><code>let</code>은 다릅니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="number">10</span>;</div><div class="line"><span class="keyword">let</span> x = <span class="number">20</span>; <span class="comment">// 에러: 동일한 scope에서는 다시 선언할 수 없습니다.</span></div></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> x = <span class="number">100</span>; <span class="comment">// 에러: 파라미터 선언과 간섭을 일으킵니다.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> x = <span class="number">100</span>;</div><div class="line">  <span class="keyword">var</span> x = <span class="number">100</span>; <span class="comment">// 에러</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>블럭을 지정해 주면 동일한 이름으로 변수를 선언할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">condition:<span class="built_in">boolean</span>, x:<span class="built_in">number</span></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (condition) &#123;</div><div class="line">    <span class="keyword">let</span> x = <span class="number">100</span>;</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> x;</div><div class="line">&#125;</div><div class="line">f(<span class="literal">false</span>, <span class="number">0</span>);  <span class="comment">// reutrn 0</span></div><div class="line">f(<span class="literal">true</span>, <span class="number">0</span>);   <span class="comment">// reutrn 100</span></div></pre></td></tr></table></figure>
+<p>안쪽 scope에 새로 선언하는 것을 shadowing라고 합니다. 어떤 버그는 막을 수 있지만 또 다른 버그를 만들어 낼 수 있습니다.<br>예를 들어 <code>sumMatrix</code> 함수를 <code>let</code>으로 다시 작성했다고 생각해 봅시다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumMatrix</span>(<span class="params">matrix: <span class="built_in">number</span>[][]</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> currentRow = matrix[i];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; currentRow.length; i++) &#123;</div><div class="line">      sum += currentRow[i];</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이 버전은 안쪽 <code>i</code>가 바깥 루프의 <code>i</code>를 가려서  정확하게 합산을 수행할 수 있습니다.</p>
+<p>더 명확한 코드를 작성하기 위해 shadowing은 일반적으로 피해야 합니다.</p>
+<h3 id="Block-scoped-variable-capturing"><a href="#Block-scoped-variable-capturing" class="headerlink" title="Block-scoped variable capturing"></a>Block-scoped variable capturing</h3><p><code>var</code> 선언으로 변수 캡처의 개념을 처음 접했을 때 일단 캡처 된 변수가 어떻게 작동하는지 간략하게 살펴 보았습니다. 이것에 대한 더 나은 직감을주기 위해 스코프가 실행될 때마다 변수의 “환경”을 생성합니다. 해당 환경 및 캡처 된 변수는 범위 내의 모든 항목이 완료된 후에도 존재할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">theCityThatAlwaysSleeps</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> getCity;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">let</span> city = <span class="string">"Seattle"</span>;</div><div class="line">    getCity = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> city;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> getCity();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>환경안에서 <code>city</code>를 캡처했으므로 <code>if</code>블럭이 실행을 완료했음에도 불구하고 여전히 액세스 할 수 있습니다.</p>
+<p>이전의 setTimeout 예제에서는 for 루프를 반복 할 때마다 변수의 상태를 캡처하기 위해 IIFE를 사용해야한다는 결론을 얻었습니다. 사실 우리가 수행 한 작업은 캡처 된 변수에 대한 새로운 변수 환경을 만드는 것이 었습니다. 그것은 약간의 고통 이었지만, 다행스럽게도 TypeScript에서는 다시 할 필요가 없습니다.</p>
+<p>루프의 일부로 선언될 때 <code>let</code> 선언은 철저하게 다른게 동작합니다.<br>루프 자체에 새로운 환경을 도입하기보다는 반복마다 새로운 scope를 만듭니다.<br>지금까지는 IIFE로 해왔으나 <code>setTimeout</code> 예제를 <code>let</code> 선언을 사용해서 바꿀 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(i); &#125;, <span class="number">100</span> * i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="number">5</span></div><div class="line"><span class="number">6</span></div><div class="line"><span class="number">7</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="number">9</span></div></pre></td></tr></table></figure>
+<h2 id="const-선언"><a href="#const-선언" class="headerlink" title="const 선언"></a><code>const</code> 선언</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> numLivesForCat = <span class="number">9</span>;</div></pre></td></tr></table></figure>
+<p><code>let</code>과 비슷하나 값을 바꿀 수 없습니다. 다시 말해서 동일한 scope 내에서 다시 할당 할 수 없습니다.</p>
+<p>이것은 참조하는 값이 불변이라는 생각과 혼동되어서는 안됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> numLivesForCat = <span class="number">9</span>;</div><div class="line"><span class="keyword">const</span> kitty = &#123;</div><div class="line">  name: <span class="string">"Aurora"</span>,</div><div class="line">  numLives: numLivesForCat</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 에러</span></div><div class="line">kitty = &#123;</div><div class="line">  name: <span class="string">"Danielle"</span>,</div><div class="line">  numLives: numLivesForCat</div><div class="line">&#125;</div><div class="line"></div><div class="line">kitty.name = <span class="string">"Rory"</span>;</div><div class="line">kitty.name = <span class="string">"Kitty"</span>;</div><div class="line">kitty.name = <span class="string">"Cat"</span>;</div><div class="line">kitty.numLives--;</div></pre></td></tr></table></figure>
+<p>이를 피하기 위해 특별한 조치를 취하지 않으면 <code>const</code> 변수의 내부 상태가 여전히 수정 가능합니다. 다행히도 TypeScript를 사용하면 객체의 멤버를 읽기 전용으로 지정할 수 있습니다. 인터페이스 장에서 자세히 설명합니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dragonjun.github.io//TypeScript/2016-12-02-typescript-variable-declaration.html" data-id="ciw7w3avo0001bp9uxjtotxh6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dragonjun" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/TypeScript/2016-12-03-typescript-interface.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Typescript Interface
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/TypeScript/2016-12-01-typescript-type.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">TypeScript Type</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://isocpp.org/">C++</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorials</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://docs.scala-lang.org/ko/tutorials/scala-for-java-programmers.html">Scala</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">JavaScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md">TypeScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.python.org/doc/">Python</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2016 Yongjun Cho</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

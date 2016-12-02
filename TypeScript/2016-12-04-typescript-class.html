@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Typescript Class | Programming Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="TypeScript" />
+    
+    <meta name="description" content="전통적인 JavaScript는 재사용 가능한 컴포넌트를 빌드하는 기본 수단으로 함수와 프로토 타입 기반 상속에 중점을두고 있지만, 클래스가 기능을 상속하고 객체가 이러한 클래스에서 빌드되는 객체 지향 접근 방식에 익숙한 프로그래머에게는 다소 어색함을 느낄 수 있습니다. ECMAScript 2015(ECMAScript 6)에서 부터는 JavaScript 프로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typescript Class">
+<meta property="og:url" content="http://dragonjun.github.io/TypeScript/2016-12-04-typescript-class.html">
+<meta property="og:site_name" content="Programming Training">
+<meta property="og:description" content="전통적인 JavaScript는 재사용 가능한 컴포넌트를 빌드하는 기본 수단으로 함수와 프로토 타입 기반 상속에 중점을두고 있지만, 클래스가 기능을 상속하고 객체가 이러한 클래스에서 빌드되는 객체 지향 접근 방식에 익숙한 프로그래머에게는 다소 어색함을 느낄 수 있습니다. ECMAScript 2015(ECMAScript 6)에서 부터는 JavaScript 프로">
+<meta property="og:image" content="http://dragonjun.github.io/images/TypeScript.png">
+<meta property="og:updated_time" content="2016-12-02T14:28:44.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Typescript Class">
+<meta name="twitter:description" content="전통적인 JavaScript는 재사용 가능한 컴포넌트를 빌드하는 기본 수단으로 함수와 프로토 타입 기반 상속에 중점을두고 있지만, 클래스가 기능을 상속하고 객체가 이러한 클래스에서 빌드되는 객체 지향 접근 방식에 익숙한 프로그래머에게는 다소 어색함을 느낄 수 있습니다. ECMAScript 2015(ECMAScript 6)에서 부터는 JavaScript 프로">
+<meta name="twitter:image" content="http://dragonjun.github.io/images/TypeScript.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-28750529-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming Training</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-/TypeScript/2016-12-04-typescript-class.html" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Typescript Class
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                <a href="/TypeScript/2016-12-04-typescript-class.html" class="article-date">
+    <time datetime="2016-12-03T20:00:00.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>전통적인 JavaScript는 재사용 가능한 컴포넌트를 빌드하는 기본 수단으로 함수와 프로토 타입 기반 상속에 중점을두고 있지만, 클래스가 기능을 상속하고 객체가 이러한 클래스에서 빌드되는 객체 지향 접근 방식에 익숙한 프로그래머에게는 다소 어색함을 느낄 수 있습니다. ECMAScript 2015(ECMAScript 6)에서 부터는 JavaScript 프로그래머는이 객체 지향 클래스 기반 접근 방식을 사용하여 응용 프로그램을 빌드 할 수 있습니다. TypeScript에서는 다음 JavaScript 버전을 기다릴 필요없이 개발자들이 이 기술들을 지금 사용하고 모든 주요 브라우저 및 플랫폼에서 작동하는 JavaScript로 컴파일 할 수 있습니다.</p>
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Greeter &#123;</div><div class="line">  greeting: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(message: string) &#123;</div><div class="line">    <span class="keyword">this</span>.greeting = message;</div><div class="line">  &#125;</div><div class="line">  greet() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + <span class="keyword">this</span>.greeting;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> greeter = <span class="keyword">new</span> Greeter(<span class="string">"world"</span>);</div></pre></td></tr></table></figure>
+<p>이전에 C #이나 Java를 사용했다면 문법이 익숙할 것입니다. 새로운 클래스인 Greeter를 선언합니다. 이 클래스에는 <code>greeting</code> 속성, 생성자 및 <code>greet</code> method의 세 가지 멤버가 있습니다.</p>
+<p>클래스의 멤버를 참조할때 <code>this.</code>를 앞에 붙였습니다.</p>
+<p>마지막 줄에서는 <code>new</code>를 사용하여 <code>Greeter</code> 클래스의 인스턴스를 생성합니다. 앞서 정의한 생성자를 호출하여  <code>Greeter</code> 형태의 새 객체를 만들고 생성자를 실행하여 초기화합니다.</p>
+<h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><p>TypeScript에서는 일반적인 객체 지향 패턴을 사용할 수 있습니다. 물론 클래스 기반 프로그래밍에서 가장 기본적인 패턴 중 하나는 상속을 사용하여 기존 클래스를 확장하여 새로운 클래스를 생성 할 수 있다는 것입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Animal &#123;</div><div class="line">  name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(theName: string) &#123; <span class="keyword">this</span>.name = theName; &#125;</div><div class="line">  move(distanceInMeters: <span class="built_in">number</span> = <span class="number">0</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;this.name&#125;</span> moved <span class="subst">$&#123;distanceInMeters&#125;</span>m.`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Snake extends Animal &#123;</div><div class="line">  <span class="keyword">constructor</span>(name: string) &#123; <span class="keyword">super</span>(name); &#125;</div><div class="line">  move(distanceInMeters = <span class="number">5</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Slithering..."</span>);</div><div class="line">    <span class="keyword">super</span>.move(distanceInMeters);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Horse extends Animal &#123;</div><div class="line">  <span class="keyword">constructor</span>(name: string) &#123; <span class="keyword">super</span>(name); &#125;</div><div class="line">  move(distanceInMeters = <span class="number">45</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Galloping..."</span>);</div><div class="line">    <span class="keyword">super</span>.move(distanceInMeters);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> sam = <span class="keyword">new</span> Snake(<span class="string">"Sammy the Python"</span>);</div><div class="line"><span class="keyword">let</span> tom: Animal = <span class="keyword">new</span> Horse(<span class="string">"Tommy the Palomino"</span>);</div><div class="line"></div><div class="line">sam.move();</div><div class="line">tom.move(<span class="number">34</span>);</div></pre></td></tr></table></figure>
+<p>이 예제는 TypeScript의 다른 언어에 공통적 인 상속 기능 중 상당수를 다룹니다. 여기서 하위 클래스를 만드는 데 사용되는 extends 키워드를 볼 수 있습니다.</p>
+<p>생성자 함수를 포함하는 파생 클래스는 기본 클래스의 생성자 함수를 실행하려면 <code>super()</code>를 호출해야합니다.</p>
+<p>또한이 예제는 기본 클래스의 메서드를 하위 클래스에 특화된 메서드로 재정의하는 방법을 보여줍니다. 여기에서 Snake와 Horse는 Animal로부터의 <code>move</code>를 오버라이드하는 <code>move</code> 메소드를 생성하여 각 클래스에 특정 기능을 부여합니다. <code>tom</code>은 <code>Animal</code>로 선언되었지만 그 값은 <code>Horse</code>이므로 <code>tom.move(34)</code>에서 <code>Horse</code>에서 재정의 메소드를 호출합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Slithering...</div><div class="line">Sammy the Python moved <span class="number">5</span>m.</div><div class="line">Galloping...</div><div class="line">Tommy the Palomino moved <span class="number">34</span>m.</div></pre></td></tr></table></figure>
+<h2 id="Public-Private-and-Protected-modifier"><a href="#Public-Private-and-Protected-modifier" class="headerlink" title="Public, Private and Protected modifier"></a>Public, Private and Protected modifier</h2><h3 id="public-by-default"><a href="#public-by-default" class="headerlink" title="public by default"></a><code>public</code> by default</h3><p>TypeScript에서는 class의 각 멤버는 기본적으로 <code>public</code>입니다.</p>
+<h3 id="private"><a href="#private" class="headerlink" title="private"></a><code>private</code></h3><p><code>private</code>로 지정하면 class밖에서 접근할 수 없습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Animal &#123;</div><div class="line">  <span class="keyword">private</span> name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(theName: string) &#123; <span class="keyword">this</span>.name = theName; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Animal(<span class="string">"Cat"</span>).name; <span class="comment">// 에러</span></div></pre></td></tr></table></figure>
+<p>TypeScript는 structural type 시스템입니다. 두 가지 type을 비교할 때, 모든 멤버의 type이 호환 가능하다면 type 자체가 호환 가능하다고 말합니다.</p>
+<p>그러나 <code>private</code> 및 <code>protected</code> 멤버가 있는 type을 비교할 때 이러한 유형을 다르게 처리합니다. 두개의 type이 호환 가능한 것으로 간주되려면 그 중 하나에 <code>private</code> 멤버가 있는 경우 다른 하나도 동일한 선언에서 시작된 <code>private</code> 구성원을 가져야합니다. <code>protected</code> 멤버도 마찬가지입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Animal &#123;</div><div class="line">  <span class="keyword">private</span> name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(theName: string) &#123; <span class="keyword">this</span>.name = theName; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Rhino extends Animal &#123;</div><div class="line">  <span class="keyword">constructor</span>() &#123; <span class="keyword">super</span>(<span class="string">"Rhino"</span>); &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Employee &#123;</div><div class="line">  <span class="keyword">private</span> name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(theName: string) &#123; <span class="keyword">this</span>.name = theName; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> animal = <span class="keyword">new</span> Animal(<span class="string">"Goat"</span>);</div><div class="line"><span class="keyword">let</span> rhino = <span class="keyword">new</span> Rhino();</div><div class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee(<span class="string">"Bob"</span>);</div><div class="line"></div><div class="line">animal = rhino;</div><div class="line">animal = employee;  <span class="comment">// 에러: 'Animal'과 'Employee'는 호환되지 않습니다</span></div></pre></td></tr></table></figure>
+<p>이 예제에서는 <code>Animal</code>과 <code>Rhino</code>가 있고 <code>Rhino</code>는 <code>Animal</code>의 하위 클래스있습니다. 또한 형태면에서 <code>Animal</code>과 똑같이 보이는 새로운 클래스 <code>Employee</code>가 있습니다. 우리는 이러한 클래스의 인스턴스를 생성 한 다음 서로를 할당하여 어떤 일이 발생하는지 봅니다. <code>Animal</code>의 <code>private name: string</code>을 동일한 선언에서 형태의 <code>private</code> 측면을 공유하기 때문에 <code>Animal</code>과 <code>Rhino</code>는 호환됩니다. 그러나 <code>Employee</code>의 경우는 그렇지 않습니다. <code>Employee</code>에서 <code>Animal</code>로 할당하려고 할 때 이러한 type이 호환되지 않는다는 오류가 발생합니다. <code>Employee</code>에는 <code>name</code>이라는 <code>private</code> 멤버가 있지만, <code>Animal</code>에서 선언 한 멤버는 아닙니다.</p>
+<h3 id="protected"><a href="#protected" class="headerlink" title="protected"></a><code>protected</code></h3><p><code>protected</code> 멤버는 하위클래스에서 접근할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  <span class="keyword">protected</span> name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(name: string) &#123; <span class="keyword">this</span>.name = name; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Employee extends Person &#123;</div><div class="line">  <span class="keyword">private</span> department: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(name: string, department: string) &#123;</div><div class="line">    <span class="keyword">super</span>(name);</div><div class="line">    <span class="keyword">this</span>.department = department;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> getElevatorPitch() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">`Hello, my name is <span class="subst">$&#123;this.name&#125;</span> and I work in <span class="subst">$&#123;this.department&#125;</span>.`</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> howard = <span class="keyword">new</span> Employee(<span class="string">"Howard"</span>, <span class="string">"Sales"</span>);</div><div class="line"><span class="built_in">console</span>.log(howard.getElevatorPitch());</div><div class="line"><span class="built_in">console</span>.log(howard.name); <span class="comment">// 에러</span></div></pre></td></tr></table></figure>
+<p>constructor를 <code>protectec</code>로 지정할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  <span class="keyword">protected</span> name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">protected</span> <span class="keyword">constructor</span>(theName: string) &#123; <span class="keyword">this</span>.name = theName; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Employee extends Person &#123;</div><div class="line">  <span class="keyword">private</span> department: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(name: string, department: string) &#123;</div><div class="line">    <span class="keyword">super</span>(name);</div><div class="line">    <span class="keyword">this</span>.department = department;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> getElevatorPitch() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">`Hello, my name is <span class="subst">$&#123;this.name&#125;</span> and I work in <span class="subst">$&#123;this.department&#125;</span>.`</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> howard = <span class="keyword">new</span> Employee(<span class="string">"Howard"</span>, <span class="string">"Sales"</span>);</div><div class="line"><span class="keyword">let</span> john = <span class="keyword">new</span> Person(<span class="string">"John"</span>);  <span class="comment">// 에러: 'Person' constructor is protected</span></div></pre></td></tr></table></figure>
+<h2 id="Readonly-modifier"><a href="#Readonly-modifier" class="headerlink" title="Readonly modifier"></a>Readonly modifier</h2><p>readonly 키워드를 사용하여 속성을 읽기 전용으로 만들 수 있습니다. 읽기 전용 속성은 선언 또는 생성자에서 초기화해야합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Octopus &#123;</div><div class="line">  readonly name: <span class="built_in">string</span>;</div><div class="line">  readonly numberOfLegs: <span class="built_in">number</span> = <span class="number">8</span>;</div><div class="line">  <span class="keyword">constructor</span> (theName: string) &#123;</div><div class="line">    <span class="keyword">this</span>.name = theName;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> dad = <span class="keyword">new</span> Octopus(<span class="string">"Man with the 8 strong legs"</span>);</div><div class="line">dad.name = <span class="string">"Man with the 3-piece suit"</span>; <span class="comment">// error! name is readonly.</span></div></pre></td></tr></table></figure>
+<h3 id="parameter-property"><a href="#parameter-property" class="headerlink" title="parameter property"></a>parameter property</h3><p>마지막 예제에서 우리는 Octopus 클래스에서 읽기 전용 멤버 <code>name</code>과 생성자 매개 변수 인 theName을 선언해야만했습니다. 그런 다음 name을 theName으로 즉시 설정했습니다. 이것은 매우 일반적인 방법으로 밝혀졌습니다. 매개 변수 속성을 사용하면 한 곳에서 멤버를 만들고 초기화 할 수 있습니다. 다음은 매개 변수 속성을 사용하여 이전 Octopus 클래스의 추가 개정판입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Octopus &#123;</div><div class="line">  readonly numberOfLegs: <span class="built_in">number</span> = <span class="number">8</span>;</div><div class="line">  <span class="keyword">constructor</span>(readonly name: string) &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>parameter property는 accessibility modifier나 readonly를 생성자 매개 변수 앞에 접두어를 붙임으로써 선언됩니다.</p>
+<h2 id="static-property"><a href="#static-property" class="headerlink" title="static property"></a>static property</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Grid &#123;</div><div class="line">  <span class="keyword">static</span> origin = &#123;x: <span class="number">0</span>, y: <span class="number">0</span>&#125;;</div><div class="line">  calculateDistanceFromOrigin(point: &#123;x: <span class="built_in">number</span>; y: <span class="built_in">number</span>;&#125;) &#123;</div><div class="line">    <span class="keyword">let</span> xDist = (point.x - Grid.origin.x);</div><div class="line">    <span class="keyword">let</span> yDist = (point.y - Grid.origin.y);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(xDist * xDist + yDist * yDist) / <span class="keyword">this</span>.scale;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">constructor</span> (public scale: number) &#123; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> grid1 = <span class="keyword">new</span> Grid(<span class="number">1.0</span>);  <span class="comment">// 1x scale</span></div><div class="line"><span class="keyword">let</span> grid2 = <span class="keyword">new</span> Grid(<span class="number">5.0</span>);  <span class="comment">// 5x scale</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(grid1.calculateDistanceFromOrigin(&#123;x: <span class="number">10</span>, y: <span class="number">10</span>&#125;));</div><div class="line"><span class="built_in">console</span>.log(grid2.calculateDistanceFromOrigin(&#123;x: <span class="number">10</span>, y: <span class="number">10</span>&#125;));</div></pre></td></tr></table></figure>
+<h2 id="abstrac-class"><a href="#abstrac-class" class="headerlink" title="abstrac class"></a>abstrac class</h2><p>abstract 클래스는 다른 클래스를 파생시킬 수있는 기본 클래스입니다. 직접 인스턴스화 할 수 없습니다. 인터페이스와 달리 abstract 클래스에는 멤버에 대한 구현 세부 정보가 포함될 수 있습니다. abstract 키워드는 abstract 클래스뿐만 아니라 abstract 클래스 내에서 abstract 메소드를 정의하는 데 사용됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> Animal &#123;</div><div class="line">  <span class="keyword">abstract</span> makeSound(): <span class="built_in">void</span>;</div><div class="line">  move(): <span class="built_in">void</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"roaming the earth..."</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>abstract으로 표시된 abstract 클래스 내의 메소드에는 구현이 포함되어 있지 않으므로 파생 클래스에서 구현해야합니다. abstract 메소드는 인터페이스 메소드와 유사한 구문을 사용합니다. 둘 다 메소드 본문을 포함하지 않고 메소드의 서명을 정의합니다. 그러나 abstract 메소드는 abstract 키워드를 포함해야하며 선택적으로 access modifier를 포함 할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> Department &#123;</div><div class="line">  <span class="keyword">constructor</span>(public name: string) &#123;</div><div class="line">  &#125;</div><div class="line">  printName(): <span class="built_in">void</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Department name: "</span> + <span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">abstract</span> printMeeting(): <span class="built_in">void</span>; <span class="comment">// must be implemented in derived classes</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> AccountingDepartment extends Department &#123;</div><div class="line">  <span class="keyword">constructor</span>() &#123;</div><div class="line">    <span class="keyword">super</span>(<span class="string">"Accounting and Auditing"</span>); <span class="comment">// constructors in derived classes must call super()</span></div><div class="line">  &#125;</div><div class="line">  printMeeting(): <span class="built_in">void</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"The Accounting Department meets each Monday at 10am."</span>);</div><div class="line">  &#125;</div><div class="line">  generateReports(): <span class="built_in">void</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Generating accounting reports..."</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> department: Department; <span class="comment">// ok to create a reference to an abstract type</span></div><div class="line">department = <span class="keyword">new</span> Department(); <span class="comment">// error: cannot create an instance of an abstract class</span></div><div class="line">department = <span class="keyword">new</span> AccountingDepartment(); <span class="comment">// ok to create and assign a non-abstract subclass</span></div><div class="line">department.printName();</div><div class="line">department.printMeeting();</div><div class="line">department.generateReports(); <span class="comment">// error: method doesn't exist on declared abstract type</span></div></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dragonjun.github.io//TypeScript/2016-12-04-typescript-class.html" data-id="ciw7w3avs0005bp9uhw5w0lmk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dragonjun" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/TypeScript/2016-12-03-typescript-interface.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Typescript Interface</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://isocpp.org/">C++</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorials</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://docs.scala-lang.org/ko/tutorials/scala-for-java-programmers.html">Scala</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">JavaScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md">TypeScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.python.org/doc/">Python</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2016 Yongjun Cho</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

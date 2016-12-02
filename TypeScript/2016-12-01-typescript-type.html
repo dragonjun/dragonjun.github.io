@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>TypeScript Type | Programming Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="TypeScript" />
+    
+    <meta name="description" content="TypeScript는 boolean, number, string, array, tuple, enum, any, void, null, undefined type을 제공합니다.
+booleanboolean type은 true와 false, 둘 중에 하나를 갖는 type입니다.
+1let isDone: boolean = true;
+numbernumber type은">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript Type">
+<meta property="og:url" content="http://dragonjun.github.io/TypeScript/2016-12-01-typescript-type.html">
+<meta property="og:site_name" content="Programming Training">
+<meta property="og:description" content="TypeScript는 boolean, number, string, array, tuple, enum, any, void, null, undefined type을 제공합니다.
+booleanboolean type은 true와 false, 둘 중에 하나를 갖는 type입니다.
+1let isDone: boolean = true;
+numbernumber type은">
+<meta property="og:image" content="http://dragonjun.github.io/images/TypeScript.png">
+<meta property="og:updated_time" content="2016-12-02T12:30:30.667Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TypeScript Type">
+<meta name="twitter:description" content="TypeScript는 boolean, number, string, array, tuple, enum, any, void, null, undefined type을 제공합니다.
+booleanboolean type은 true와 false, 둘 중에 하나를 갖는 type입니다.
+1let isDone: boolean = true;
+numbernumber type은">
+<meta name="twitter:image" content="http://dragonjun.github.io/images/TypeScript.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-28750529-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming Training</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-/TypeScript/2016-12-01-typescript-type.html" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        TypeScript Type
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                <a href="/TypeScript/2016-12-01-typescript-type.html" class="article-date">
+    <time datetime="2016-11-30T20:00:00.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>TypeScript는 boolean, number, string, array, tuple, enum, any, void, null, undefined type을 제공합니다.</p>
+<h2 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h2><p>boolean type은 true와 false, 둘 중에 하나를 갖는 type입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> isDone: <span class="built_in">boolean</span> = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<h2 id="number"><a href="#number" class="headerlink" title="number"></a>number</h2><p>number type은 부동소수점 숫자를 갖는 type입니다.<br>TypeScript에서 모든 숫자는 자바스크립트와 같이 부동소수점 숫자입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> decimal: <span class="built_in">number</span> = <span class="number">6</span>;      <span class="comment">// 10진수</span></div><div class="line"><span class="keyword">let</span> hex: <span class="built_in">number</span> = <span class="number">0xf00d</span>;     <span class="comment">// 16진수</span></div><div class="line"><span class="keyword">let</span> binary: <span class="built_in">number</span> = <span class="number">0b1010</span>;  <span class="comment">// 2진수</span></div><div class="line"><span class="keyword">let</span> octal: <span class="built_in">number</span> = <span class="number">0o744</span>;    <span class="comment">// 8진수</span></div><div class="line"><span class="keyword">let</span> float: <span class="built_in">number</span> = <span class="number">3.141592</span>; <span class="comment">// 부동소수점</span></div></pre></td></tr></table></figure>
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>string type은 0개 이상의 문자의 나열을 갖는 type입니다.<br>string 리터럴(literal)은 큰 따옴표(“) 또는 작은 따옴표(‘)를 이용해서 표현합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> hello: <span class="built_in">string</span> = <span class="string">"world"</span>;</div><div class="line"><span class="keyword">let</span> animal: <span class="built_in">string</span> = <span class="string">'cat'</span>;</div></pre></td></tr></table></figure>
+<p>template string은 여러 라인에 걸칠 수 있고 식(expression)을 넣을 수 있습니다.<br>template string은 backtick/backquote (`) 문자로 둘러 싸고 내장되는 식은 ${ expr }의 형태입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fullName: <span class="built_in">string</span> = <span class="string">`Bob Bobbington`</span>;</div><div class="line"><span class="keyword">let</span> age: <span class="built_in">number</span> = <span class="number">37</span>;</div><div class="line"><span class="keyword">let</span> setence: <span class="built_in">string</span> =</div><div class="line"><span class="string">`Hello, my name is <span class="subst">$&#123; fullName &#125;</span>.</span></div><div class="line">I'll be <span class="subst">$&#123; age + 1 &#125;</span> years old next month.`</div></pre></td></tr></table></figure>
+<h2 id="array"><a href="#array" class="headerlink" title="array"></a>array</h2><p>배열은 두 가지 방법이 있습니다.<br>첫번째는 요소의 type과 []를 사용하는 방법입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> list: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div></pre></td></tr></table></figure>
+<p>두번째는 generic array type, Array<elementtype>을 사용하는 방법입니다.</elementtype></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> list: <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div></pre></td></tr></table></figure>
+<h2 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h2><p>tuple는 요소(element)의 type을 지정하는 배열입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x: [<span class="built_in">string</span>, <span class="built_in">number</span>] = [<span class="string">"hello"</span>, <span class="number">1</span>];</div><div class="line">x = [<span class="number">1</span>, <span class="string">"hello"</span>]; <span class="comment">// 에러</span></div><div class="line">x[<span class="number">0</span>] = <span class="number">1</span>;         <span class="comment">// 에러</span></div></pre></td></tr></table></figure>
+<p>type을 지정하지 않은 index 요소의 type은 union type이 됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x[<span class="number">2</span>] = <span class="string">"world"</span>; <span class="comment">// x[3]은 union type 'string | number'입니다.</span></div><div class="line">x[<span class="number">3</span>] = <span class="literal">true</span>;    <span class="comment">// 에러, boolean은 string | number이 아닙니다.</span></div></pre></td></tr></table></figure>
+<h2 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h2><p>enum은 미리 정해진 상수(constant)의 집합인 type 입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Color &#123;Red, Green, Blue&#125;;</div><div class="line"><span class="keyword">let</span> c: Color = Color.Green;</div></pre></td></tr></table></figure>
+<p>enum은 숫자가 0부터 시작하지만 이것을 바꿀 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Color &#123;Red = <span class="number">1</span>, Green, Blue&#125;;</div><div class="line"><span class="keyword">let</span> c: Color = Color.Green;</div></pre></td></tr></table></figure>
+<p>또는 모든 값을 정할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Color &#123;Red = <span class="number">1</span>, Green = <span class="number">2</span>, Blue = <span class="number">4</span>&#125;;</div><div class="line"><span class="keyword">let</span> c: Color = Color.Green;</div></pre></td></tr></table></figure>
+<p>값으로 부터 상수의 이름을 얻을 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Color &#123;Red = <span class="number">1</span>, Green, Blue&#125;;</div><div class="line"><span class="keyword">let</span> colorName: <span class="built_in">string</span> = Color[<span class="number">2</span>];</div><div class="line"><span class="built_in">console</span>.log(colorName);</div></pre></td></tr></table></figure>
+<h2 id="any"><a href="#any" class="headerlink" title="any"></a>any</h2><p>type을 알 수 없는 변수를 표현해야 할 떄가 있습니다. 이 경우 type checking를 하지 않고 compile-time check를 통과하고록 합니다. 그렇게 하기 위해서는 any type을 사용합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> notSure: <span class="built_in">any</span> = <span class="number">4</span>;</div><div class="line">notSure = <span class="string">"maybe a string instead"</span>;</div><div class="line">notSure = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
+<h2 id="void"><a href="#void" class="headerlink" title="void"></a>void</h2><p>void는 return 값이 없는 함수에서 사용합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">warnUser</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</div><div class="line">    alert(<span class="string">"This is my warning message"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="null과-undefined"><a href="#null과-undefined" class="headerlink" title="null과 undefined"></a>null과 undefined</h2><p>null과 undefined은 각각 null type과 undefined type이 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> undefinedVariable: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</div><div class="line"><span class="keyword">let</span> nullVariable: <span class="literal">null</span> = <span class="literal">null</span>;</div></pre></td></tr></table></figure>
+<p>기본적으로 null과 undefined는 다른 type의 subtype입니다.<br>이것은 null과 undefined를 number와 같은 type에 할당할 수 있다는 것을 의미합니다.</p>
+<p>그러나 –strictNullChecks 플래그를 true로 설정하면 null과 undefined는 void과 각자 해당되는 type에만 할당할 수 있습니다. 이렇게 하면 많은 에러를 피할 수 있습니다. string 또는 null 또는 undefined를 넘기려면 union type string | null | undefined를 사용합니다.</p>
+<h2 id="Type-assertion"><a href="#Type-assertion" class="headerlink" title="Type assertion"></a>Type assertion</h2><p>type assertion은 다른 언어에서 type cast와 비슷하나 data를 검사하거나 변환하지 않습니다.<br>runtime에는 아무런 영향을 주지 않으며 compiler만 사용하니다.</p>
+<p>type assertion는 두 가지 형태가 있습니다. 하나는 angle-bracket 문법입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</div><div class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (&lt;<span class="built_in">string</span>&gt;someValue).length;</div></pre></td></tr></table></figure>
+<p>다른 하나는 as 문법입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</div><div class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (soneValue as <span class="built_in">string</span>).length;</div></pre></td></tr></table></figure>
+<p>둘중에 선호하는 것을 쓸 수 있으나 JSX와 사용할때는 as 문법이 허용됩니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dragonjun.github.io//TypeScript/2016-12-01-typescript-type.html" data-id="ciw7w3avm0000bp9uk1q9d5f5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dragonjun" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/TypeScript/2016-12-02-typescript-variable-declaration.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Typescript 변수 선언
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://isocpp.org/">C++</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorials</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://docs.scala-lang.org/ko/tutorials/scala-for-java-programmers.html">Scala</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">JavaScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md">TypeScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.python.org/doc/">Python</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2016 Yongjun Cho</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
