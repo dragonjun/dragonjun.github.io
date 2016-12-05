@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Typescript Enum | Programming Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="TypeScript" />
+    
+    <meta name="description" content="enum을 사용하면 명명된 상수 집합을 정의할 수 있습니다.
+123456enum Direction &amp;#123;  Up = 1,  Down,  Left,  Right&amp;#125;
+enum의 바디는 0개 이상의 enum 멤버로 구성됩니다. enum 멤버는 관련 숫자 값을 가지며 상수이거나 계산 될 수 있습니다. enum 멤버는 다음과 같은 경우 상수로 간주됩니다">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typescript Enum">
+<meta property="og:url" content="http://dragonjun.github.io/TypeScript/2016-12-07-typescript-enum.html">
+<meta property="og:site_name" content="Programming Training">
+<meta property="og:description" content="enum을 사용하면 명명된 상수 집합을 정의할 수 있습니다.
+123456enum Direction &amp;#123;  Up = 1,  Down,  Left,  Right&amp;#125;
+enum의 바디는 0개 이상의 enum 멤버로 구성됩니다. enum 멤버는 관련 숫자 값을 가지며 상수이거나 계산 될 수 있습니다. enum 멤버는 다음과 같은 경우 상수로 간주됩니다">
+<meta property="og:image" content="http://dragonjun.github.io/images/TypeScript.png">
+<meta property="og:updated_time" content="2016-12-04T04:33:21.859Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Typescript Enum">
+<meta name="twitter:description" content="enum을 사용하면 명명된 상수 집합을 정의할 수 있습니다.
+123456enum Direction &amp;#123;  Up = 1,  Down,  Left,  Right&amp;#125;
+enum의 바디는 0개 이상의 enum 멤버로 구성됩니다. enum 멤버는 관련 숫자 값을 가지며 상수이거나 계산 될 수 있습니다. enum 멤버는 다음과 같은 경우 상수로 간주됩니다">
+<meta name="twitter:image" content="http://dragonjun.github.io/images/TypeScript.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-28750529-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming Training</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-/TypeScript/2016-12-07-typescript-enum.html" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Typescript Enum
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                <a href="/TypeScript/2016-12-07-typescript-enum.html" class="article-date">
+    <time datetime="2016-12-06T20:00:00.000Z" itemprop="datePublished">2016-12-07</time>
+</a>
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>enum을 사용하면 명명된 상수 집합을 정의할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Direction &#123;</div><div class="line">  Up = <span class="number">1</span>,</div><div class="line">  Down,</div><div class="line">  Left,</div><div class="line">  Right</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>enum의 바디는 0개 이상의 enum 멤버로 구성됩니다. enum 멤버는 관련 숫자 값을 가지며 상수이거나 계산 될 수 있습니다. enum 멤버는 다음과 같은 경우 상수로 간주됩니다.</p>
+<ul>
+<li>초기 설정 값이 없고 앞의 enum 멤버가 상수입니다. 이 경우 현재 enum 멤버의 값은 이전 enum 멤버의 값에 1을 더한 값이됩니다. 이 규칙의 한 가지 예외는 열거 형의 첫 번째 멤버입니다. 초기 설정값이 없으면 값 0이 지정됩니다.</li>
+<li>enum 멤버는 상수 enum 식으로 초기화됩니다. 상수 enum 식은 컴파일 타임에 완전히 평가할 수있는 TypeScript 식의 하위 집합입니다. 표현식은 다음 중 하나 인 경우 상수 enum 식입니다.</li>
+<li>숫자 리터럴</li>
+<li>이전에 정의된 상수 enum 형 멤버 (다른 enum 형에서 정의 할 수 있음)에 대한 참조. member가 동일한 enum 형에 정의 된 경우 enum 명칭이 없는 이름을 사용하여 참조 할 수 있습니다.</li>
+<li>괄호로 묶인 상수 enum 표현식</li>
+<li>단항 연산자 +, -, ~ 가 적용된 상수 enum 표현식</li>
+<li>상수 enum식이 피연산자로 사용되는 이진 연산자 constant enum식. 상수 enum 식이 NaN 또는 Infinity로 평가되면 컴파일 타임 오류가 발생합니다.</li>
+</ul>
+<p>다른 모든 경우에 enum 멤버는 계산 된 것으로 간주됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> FileAccess &#123;</div><div class="line">  <span class="comment">// constant members</span></div><div class="line">  None,</div><div class="line">  Read    = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</div><div class="line">  Write   = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</div><div class="line">  ReadWrite  = Read | Write,</div><div class="line">  <span class="comment">// computed member</span></div><div class="line">  G = <span class="string">"123"</span>.length</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>enum은 런타임에 존재하는 실제 객체입니다. 한 가지 근거는 enum 값에서 enum 이름으로 역 매핑을 유지하는 기능입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Enum &#123;</div><div class="line">  A</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> a = Enum.A;</div><div class="line"><span class="keyword">let</span> nameOfA = Enum[Enum.A]; <span class="comment">// "A"</span></div></pre></td></tr></table></figure>
+<p>은</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Enum;</div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Enum</span>) </span>&#123;</div><div class="line">    Enum[Enum[<span class="string">"A"</span>] = <span class="number">0</span>] = <span class="string">"A"</span>;</div><div class="line">&#125;)(Enum || (Enum = &#123;&#125;));</div><div class="line"><span class="keyword">var</span> a = Enum.A;</div><div class="line"><span class="keyword">var</span> nameOfA = Enum[Enum.A]; <span class="comment">// "A"</span></div></pre></td></tr></table></figure>
+<p>으로 컴파일 됩니다.</p>
+<p>생성 된 코드에서 enum은 forward (<code>name -&gt; value</code>) 매핑과 reverse (<code>value -&gt; name</code>) 매핑을 모두 저장하는 객체로 컴파일됩니다. enum 멤버에 대한 참조는 항상 속성 액세스로 내보내지며 결코 인라인되지 않습니다. 많은 경우에 이것은 완벽하게 유효한 해결책입니다. 그러나 때로는 요구 사항이 더 엄격합니다. enum 값에 액세스 할 때 여분의 생성 된 코드 및 추가 indirection의 비용을 지불하지 않으려면 const 열거 형을 사용할 수 있습니다. const 열거 형은 enum 키워드 앞에 오는 const 한정자를 사용하여 정의됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">enum</span> Enum &#123;</div><div class="line">  A = <span class="number">1</span>,</div><div class="line">  B = A * <span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>const enum은 상수 enum 표현식만 사용할 수 있으며 일반 enum과 달리 컴파일하는 동안 완전히 제거됩니다. const enum 멤버는 인라인됩니다. 이것은 const enum가 계산 된 멤버를 가질 수 없기 때문에 가능합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">enum</span> Directions &#123;</div><div class="line">  Up,</div><div class="line">  Down,</div><div class="line">  Left,</div><div class="line">  Right</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right]</div></pre></td></tr></table></figure>
+<p>는</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> directions = [<span class="number">0</span> <span class="comment">/* Up */</span>, <span class="number">1</span> <span class="comment">/* Down */</span>, <span class="number">2</span> <span class="comment">/* Left */</span>, <span class="number">3</span> <span class="comment">/* Right */</span>];</div></pre></td></tr></table></figure>
+<p>로 컴파일 됩니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dragonjun.github.io//TypeScript/2016-12-07-typescript-enum.html" data-id="ciwa4ekff0004vi9u334xlyp3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dragonjun" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/TypeScript/2016-12-08-typescript-type-inference.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Typescript Type Inference
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/TypeScript/2016-12-06-typescript-generic.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Typescript Generic</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://isocpp.org/">C++</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorials</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://docs.scala-lang.org/ko/tutorials/scala-for-java-programmers.html">Scala</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">JavaScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md">TypeScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.python.org/doc/">Python</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2016 Yongjun Cho</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

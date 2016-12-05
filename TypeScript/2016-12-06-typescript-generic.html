@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Typescript Generic | Programming Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="TypeScript" />
+    
+    <meta name="description" content="소프트웨어 엔지니어링의 주요 부분은 잘 정의되고 일관된 API를 보유 할뿐만 아니라 재사용 할 수있는 컴포넌트를 구축하는 것입니다. 오늘의 데이터와 내일의 데이터까지 처리 할 수 있는 컴포넌트는 대형 소프트웨어 시스템 구축을 위한 가장 유연한 기능을 제공합니다.
+C # 및 Java와 같은 언어에서 재사용 가능한 구성 요소를 작성하기위한 도구 상자의 주요 도">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typescript Generic">
+<meta property="og:url" content="http://dragonjun.github.io/TypeScript/2016-12-06-typescript-generic.html">
+<meta property="og:site_name" content="Programming Training">
+<meta property="og:description" content="소프트웨어 엔지니어링의 주요 부분은 잘 정의되고 일관된 API를 보유 할뿐만 아니라 재사용 할 수있는 컴포넌트를 구축하는 것입니다. 오늘의 데이터와 내일의 데이터까지 처리 할 수 있는 컴포넌트는 대형 소프트웨어 시스템 구축을 위한 가장 유연한 기능을 제공합니다.
+C # 및 Java와 같은 언어에서 재사용 가능한 구성 요소를 작성하기위한 도구 상자의 주요 도">
+<meta property="og:image" content="http://dragonjun.github.io/images/TypeScript.png">
+<meta property="og:updated_time" content="2016-12-04T04:00:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Typescript Generic">
+<meta name="twitter:description" content="소프트웨어 엔지니어링의 주요 부분은 잘 정의되고 일관된 API를 보유 할뿐만 아니라 재사용 할 수있는 컴포넌트를 구축하는 것입니다. 오늘의 데이터와 내일의 데이터까지 처리 할 수 있는 컴포넌트는 대형 소프트웨어 시스템 구축을 위한 가장 유연한 기능을 제공합니다.
+C # 및 Java와 같은 언어에서 재사용 가능한 구성 요소를 작성하기위한 도구 상자의 주요 도">
+<meta name="twitter:image" content="http://dragonjun.github.io/images/TypeScript.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-28750529-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming Training</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-/TypeScript/2016-12-06-typescript-generic.html" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Typescript Generic
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                <a href="/TypeScript/2016-12-06-typescript-generic.html" class="article-date">
+    <time datetime="2016-12-05T20:00:00.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>소프트웨어 엔지니어링의 주요 부분은 잘 정의되고 일관된 API를 보유 할뿐만 아니라 재사용 할 수있는 컴포넌트를 구축하는 것입니다. 오늘의 데이터와 내일의 데이터까지 처리 할 수 있는 컴포넌트는 대형 소프트웨어 시스템 구축을 위한 가장 유연한 기능을 제공합니다.</p>
+<p>C # 및 Java와 같은 언어에서 재사용 가능한 구성 요소를 작성하기위한 도구 상자의 주요 도구 중 하나는 제네릭 즉 단일 type이 아닌 다양한 type에서 작동 할 수있는 구성 요소를 생성하는 것입니다. 이를 통해 사용자는 이러한 구성 요소를 사용하고 자신의 유형을 사용할 수 있습니다.</p>
+<h2 id="Hello-World-of-Generic"><a href="#Hello-World-of-Generic" class="headerlink" title="Hello World of Generic"></a>Hello World of Generic</h2><p>generic에서 “Hello world”에 해당되는 identity function으로 시작해 봅시다. indentity function은 전달받은 것으로 반환하는 함수 입니다.</p>
+<p>generic가 없다면 identity 함수에 특정 type을 부여해야합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>(<span class="params">arg: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>또는 <code>any</code> type을 사용하여 ID 함수를 기술 할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>(<span class="params">arg: <span class="built_in">any</span></span>): <span class="title">any</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>any</code>를 사용하는 것은 확실히 <code>arg</code>의 타입에 대한 모든 타입을 받아 들일 것이지만, 실제로 함수가 리턴 할 때 그 type이 무엇인지에 대한 정보를 잃어 버리게됩니다. number를 전달하면, 우리가 가지고있는 유일한 정보는 <code>any</code> 타입이 리턴 될 수 있다는 것입니다.</p>
+<p>대신, 우리는 반환되는 것을 나타내는 데 사용할 수있는 방식으로 argument type을 캡처하는 방법이 필요합니다. 여기서 type variable는 value가 아닌 type에서 작동하는 특별한 종류의 변수입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이제 identity 함수에 tye variable <code>T</code>를 추가했습니다. 이 <code>T</code>는 type (예 : <code>number</code>)을 캡처하여 나중에 해당 정보를 사용할 수 있도록합니다. 여기에서 <code>T</code>를 리턴 type으로 다시 사용합니다.</p>
+<p>다양한 type에서 작동하므로 <code>identity</code> 함수가 generic하다고 말흡니다. <code>any</code>를 사용하는 것과는 달리, argument와 return type에 number를 사용하는 첫 번째 identity 함수만큼 정확합니다(즉, 정보를 잃지 않습니다).</p>
+<p>generic indentity 함수를 작성한 후에는 두 가지 방법 중 하나로 호출 할 수 있습니다. 첫 번째 방법은 type argument를 포함한 모든 argument를 함수에 전달하는 것입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> output = identity&lt;<span class="built_in">string</span>&gt;(<span class="string">"myString"</span>);</div></pre></td></tr></table></figure>
+<p><code>&lt;&gt;</code>를 사용하여 <code>string</code>를 <code>T</code>에 argument로 명시적으로 설정합니다.</p>
+<p>두 번째 방법은 가장 일반적인 방법이기도 합니다. 여기서 우리는 <em>type argument inference</em>을 사용합니다. 컴파일러가 우리가 전달하는 argument의 type에 따라 자동으로 <code>T</code> 값을 설정합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> output = identity(<span class="string">"myString"</span>);</div></pre></td></tr></table></figure>
+<p>꺽쇠 괄호 (<code>&lt;&gt;</code>) 안에 명시 적으로 type을 전달할 필요가 없었습니다. 컴파일러는 방금 <code>&quot;myString&quot;</code>값을보고 <code>T</code>를 해당 유형으로 설정합니다. <em>type argument inference</em>은 코드를 더 짧고 가독성있게 유지하는 유용한 도구가 될 수 있지만, 보다 복잡한 예제에서 컴파일러가 타입을 추론하지 못하면 앞의 예제에서 했던 것처럼 타입 인자를 명시 적으로 전달해야 할 수도 있습니다 .</p>
+<h2 id="Working-with-Generic-Type-Variable"><a href="#Working-with-Generic-Type-Variable" class="headerlink" title="Working with Generic Type Variable"></a>Working with Generic Type Variable</h2><p>함수 본문 안에서 type parameter를 올바르게 사용해야 합니다. 즉, type parameter를 모든 type이 될 수있는 것처럼 취급해야 합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>arg</code>의 length를 콘솔에 기록하려면 어떻게 해야 할까요?</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(arg.length);</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>arg</code>에 <code>.length</code> 멤버가 존재하는지 알 수 없기 때문에 에러가 발생합니다. type variable은 모든 type에 사용되므로 <code>.length</code> 멤버가 없는 `number’를 전달할 수 있습니다.</p>
+<p>우리가 실제로이 함수가 <code>T</code>가 아닌 <code>T</code>의 배열을 작업한다고 가정 해 보겠습니다. 우리가 배열을 다루기 때문에, <code>.length</code> 멤버를 사용할 수 있어야 합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T[]</span>): <span class="title">T</span>[] </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(arg.length);</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>loggingIdentity</code>는 “generic function <code>loggingIdentity</code>가 type parameter <code>T</code>와 <code>T</code>의 배열을 argument <code>arg</code>로 받고 <code>T</code>의 배열을 반환하는” type입니다.</p>
+<p>number 배열을 전달하면 <code>T</code>가 <code>number</code>에 바인드하므로 number 배열을 되돌려 받습니다.</p>
+<p>이렇게 하면 전체 type보다는 우리가 작업하는 type의 일부로 generic type variable <code>T</code>를 사용할 수 있으므로 유연성이 향상됩니다.</p>
+<p>다음과 같이 작성할 수도 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: <span class="built_in">Array</span>&lt;T&gt;</span>): <span class="title">Array</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(arg.length);  <span class="comment">// Array has a .length, so no more error</span></div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Generic-Type"><a href="#Generic-Type" class="headerlink" title="Generic Type"></a>Generic Type</h2><p>함수 type과 generic 인터페이스를 만드는 방법에 대해 살펴 보겠습니다.</p>
+<p>generic 함수의 문법은 type parameter를 <code>&lt;&gt;</code> 기술합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> myIdentity: &lt;T&gt;(arg: T) =&gt; T = identity;</div></pre></td></tr></table></figure>
+<p>generic type을 object literal type의 call signature로 기술할 수도 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> myIdentity: &#123;&lt;T&gt;(arg: T): T&#125; = identity;</div></pre></td></tr></table></figure>
+<p>예제에서 object literal을 가져 와서 인터페이스로 옮깁니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> GenericIdentityFn &#123;</div><div class="line">  &lt;T&gt;(arg: T): T;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> myIdentity: GenericIdentityFn = identity;</div></pre></td></tr></table></figure>
+<p>비슷한 예를 들어, generic parameter를 전체 인터페이스의 parameter로 옮길 수도 있습니다. 이렇게하면 어떤 type이 generic이 되어 있는지 확인할 수 있습니다 (예 : <code>Dictionary</code>이 아닌 <code>Dictionary&lt;string&gt;</code>). 이렇게하면 인터페이스의 다른 모든 구성원이 type parameter를 볼 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> GenericIdentityFn&lt;T&gt; &#123;</div><div class="line">  (arg: T): T;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> myIdentity: GenericIdentityFn&lt;<span class="built_in">number</span>&gt; = identity;</div></pre></td></tr></table></figure>
+<p>tye parameter를 call signature에 직접 적용 할때와 인터페이스 자체에 넣을 때를 이해하면 type의 어떤 측면이 generic인지 설명하는 데 도움이됩니다.</p>
+<p>generic 인터페이스 외에도 generic 클래스를 만들 수도 있습니다. generic enum 및 generic namespace를 만들 수는 없습니다.</p>
+<h2 id="Generic-Class"><a href="#Generic-Class" class="headerlink" title="Generic Class"></a>Generic Class</h2><p>generic 클래스에는 클래스 이름 뒤에 꺾쇠 괄호 (<code>&lt;&gt;</code>)로 묶인 geenric type parameter 목록이 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> GenericNumber&lt;T&gt; &#123;</div><div class="line">  zeroValue: T;</div><div class="line">  add: (x: T, y: T) =&gt; T;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> myGenericNumber = <span class="keyword">new</span> GenericNumber&lt;<span class="built_in">number</span>&gt;();</div><div class="line">myGenericNumber.zeroValue = <span class="number">0</span>;</div><div class="line">myGenericNumber.add = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123; <span class="keyword">return</span> x + y; &#125;;</div><div class="line"></div><div class="line"><span class="keyword">let</span> stringNumeric = <span class="keyword">new</span> GenericNumber&lt;<span class="built_in">string</span>&gt;();</div><div class="line">stringNumeric.zeroValue = <span class="string">""</span>;</div><div class="line">stringNumeric.add = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123; <span class="keyword">return</span> x + y; &#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(stringNumeric.add(stringNumeric.zeroValue, <span class="string">"test"</span>));</div></pre></td></tr></table></figure>
+<p>클래스에 대한 섹션에서 살펴본 것처럼 클래스에는 정적 측면과 인스턴스 측면의 두 가지 유형이 있습니다. generic 클래스는 정적 측면보다는 인스턴스 측면에서만 generic이므로 클래스를 사용하여 작업 할 때 정적 멤버는 클래스의 type parameter를 사용할 수 없습니다.</p>
+<h2 id="Generic-Constraint"><a href="#Generic-Constraint" class="headerlink" title="Generic Constraint"></a>Generic Constraint</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(arg.length);  <span class="comment">// 에러</span></div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>임의의 모든 type으로 작업하는 대신이 함수가 <code>.length</code> 속성도 가진 type에서 작동하도록 제한하고 싶습니다. 그렇게하기 위해서 우리는 <code>T</code>가 할 수있는 것에 대한 제약으로서 우리의 요구 사항을 나열해야합니다.</p>
+<p>이렇게하기 위해 우리는 제약 조건을 설명하는 인터페이스를 만들 것입니다. 여기서는 하나의 <code>.length</code> 속성을 가진 인터페이스를 만든 다음 이 인터페이스와 <code>extends</code> 키워드를 사용하여 제약 조건을 나타냅니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> Lengthwise &#123;</div><div class="line">  length: <span class="built_in">number</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span> <span class="title">extends</span> <span class="title">Lengthwise</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(arg.length);</div><div class="line">  <span class="keyword">return</span> arg;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>제네릭 함수가 이제 제한되어 있기 때문에 더 이상 모든 type에서 작동하지 않습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">loggingIdentity(<span class="number">3</span>);  <span class="comment">// 에러</span></div></pre></td></tr></table></figure>
+<p>대신 모든 필수 속성이있는 type의 값을 전달해야합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">loggingIdentity(&#123;length: <span class="number">10</span>, value: <span class="number">3</span>&#125;);</div></pre></td></tr></table></figure>
+<h3 id="generic-constraint에서-type-parameter-사용"><a href="#generic-constraint에서-type-parameter-사용" class="headerlink" title="generic constraint에서 type parameter 사용"></a>generic constraint에서 type parameter 사용</h3><p>다른 type parameter에 의해 제한되는 type parameter를 선언 할 수 있습니다. 예를 들어 여기서는 두 개의 객체를 가져 와서 하나에서 다른 객체로 속성을 복사하려고합니다. 실수로 <code>source</code>의 추가 속성을 작성하지 않도록하려면 두 가지 type간에 제약 조건을 적용합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyFields</span>&lt;<span class="title">T</span>, <span class="title">U</span> <span class="title">extends</span> <span class="title">T</span>&gt;(<span class="params">source: T, target: U</span>): <span class="title">U</span> </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> id <span class="keyword">in</span> source) &#123;</div><div class="line">    target[id] = source[id];</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> target;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> x = &#123; a: <span class="number">1</span>, b: <span class="number">2</span>, c: <span class="number">3</span>, d: <span class="number">4</span> &#125;;</div><div class="line"></div><div class="line">copyFields(&#123; b: <span class="number">10</span>, d: <span class="number">20</span> &#125;, x);</div><div class="line">copyFields(&#123; Q: <span class="number">90</span> &#125;, x); <span class="comment">// 에러</span></div></pre></td></tr></table></figure>
+<h3 id="generic에서-class-type-사용"><a href="#generic에서-class-type-사용" class="headerlink" title="generic에서 class type 사용"></a>generic에서 class type 사용</h3><p>generics를 사용하여 팩토리를 생성 할 때 constructor 함수를 사용하여 클래스 유형을 참조해야합니다. 예를 들어,</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function create&lt;T&gt;(c: &#123;new(): T; &#125;): T &#123;</div><div class="line">  return new c();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>고급 예제는 prototype 속성을 사용하여 constructor 함수와 class type의 인스턴스 측면 사이의 관계를 추론하고 제한합니다.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class BeeKeeper &#123;</div><div class="line">  hasMask: boolean;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class ZooKeeper &#123;</div><div class="line">  nametag: string;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Animal &#123;</div><div class="line">  numLegs: number;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Bee extends Animal &#123;</div><div class="line">  keeper: BeeKeeper;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Lion extends Animal &#123;</div><div class="line">  keeper: ZooKeeper;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function findKeeper&lt;A extends Animal, K&gt; (a: &#123;new(): A;</div><div class="line">  prototype: &#123;keeper: K&#125;&#125;): K &#123;</div><div class="line"></div><div class="line">  return a.prototype.keeper;</div><div class="line">&#125;</div><div class="line"></div><div class="line">findKeeper(Lion).nametag;  // typechecks!</div></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dragonjun.github.io//TypeScript/2016-12-06-typescript-generic.html" data-id="ciw9ayoxv0006nm9uqfe2de1y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dragonjun" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/TypeScript/2016-12-07-typescript-enum.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Typescript Enum
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/TypeScript/2016-12-05-typescript-function.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Typescript Function</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://isocpp.org/">C++</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorials</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://docs.scala-lang.org/ko/tutorials/scala-for-java-programmers.html">Scala</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">JavaScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md">TypeScript</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.python.org/doc/">Python</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2016 Yongjun Cho</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
